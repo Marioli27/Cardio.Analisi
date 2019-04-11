@@ -23,37 +23,53 @@ namespace CardioLibrary
                 string Consigliato = ($"{Minimo_Consigliato};{Massimo_Consigliato}");
                 return Consigliato;
 
-            }  
+            }
         }
 
-        public static string FrequenzaCardio (int battiti)
+        public static string FrequenzaCardio(int battiti)
         {
-            if(battiti<0)
+            string risp = "";
+            if (battiti < 0)
             {
-                risp = "Imposssibile";
+                risp = "Impossibile";
             }
-
-            if(battiti==0)
+            else if (battiti == 0)
             {
                 risp = "Morto";
             }
-
-            if (battiti < 60 )
+            else if (battiti < 60)
             {
                 risp = "Bradicardia";
             }
-
-            if (battiti >=60 && battiti<=100)
+            else if (battiti >= 60 && battiti <= 100)
             {
                 risp = "Normale";
             }
-
-            if (battiti > 100)
+            else if (battiti > 100)
             {
-                risp= "Tachicardia";
+                risp = "Tachicardia";
             }
 
             return risp;
+        }
+
+        public static string CalorieBruciate(int A,int P, int F, int T, string sesso)
+        {
+            string calorie = "";
+            if (A > 0 && F > 0 && T > 0 && P > 0)
+            {
+                if (sesso == "uomo")
+                {
+                    calorie = Convert.ToString(((A * 0.2017) - (P * 0.199) + (F * 0.6309) - 55.0969) * T / 4.184);
+                    return calorie;
+                }
+                else if (sesso == "donna")
+                {
+                    calorie = Convert.ToString(((A * 0.074) - (P * 0.126) + (F * 0.4472) - 20.4022) * T / 4.184);
+                    return calorie;
+                }
+            }
+            return "Impossibile";
         }
 
 

@@ -79,5 +79,7 @@ namespace DataCardio.Test
             string freguenza_Cardiaca = CardioLibrary.DataCardio.FrequenzaCardio(battiti);
             Assert.AreEqual(asp, freguenza_Cardiaca);
         }
+
+        
     }
 }

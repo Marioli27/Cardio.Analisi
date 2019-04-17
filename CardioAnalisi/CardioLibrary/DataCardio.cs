@@ -53,7 +53,7 @@ namespace CardioLibrary
             return risp;
         }
 
-        public static string CalorieBruciate(int A,int P, int F, int T, string sesso)
+        public static string CalorieBruciate(int A,double P, int F, int T, string sesso)
         {
             string calorie = "";
             if (A > 0 && F > 0 && T > 0 && P > 0)
@@ -71,6 +71,30 @@ namespace CardioLibrary
             }
             return "Impossibile";
         }
+        
+        public static string SpesaEnergie(double km,double kg, string movimento)
+        {
+            string spesa_energetica = "";
+            if (km > 0 && kg > 0)
+            {
+                if(movimento=="corsa")
+                {
+                    spesa_energetica = Convert.ToString((0.9 * km * kg));
+                    return spesa_energetica;
+                }
+                else if(movimento=="camminata")
+                {
+                    spesa_energetica = Convert.ToString((0.50 * km * kg));
+                    return spesa_energetica;
+                }
+            }
+            return "Impossibile";
+        }
+
+
+
+
+
 
 
     }
